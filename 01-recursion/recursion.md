@@ -105,7 +105,7 @@ return_type function(parameters) {
 
 ---
 
-## Факториел — C++ код
+## Факториел - C++ код
 
 ```cpp
 #include <iostream>
