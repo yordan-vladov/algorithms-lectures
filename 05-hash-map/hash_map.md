@@ -375,6 +375,40 @@ void rehash() {
 
 ---
 
+
+## Оптимизация: автоматичен rehashing при insert
+
+```cpp
+    void insert(const string& key, int value) {
+        int idx = hash(key);
+
+        for (int i = 0; i < capacity; i++) {
+            int pos = (idx + i) % capacity;
+
+            if (!table[pos].occupied || table[pos].deleted) {
+                table[pos].key      = key;
+                table[pos].value    = value;
+                table[pos].occupied = true;
+                table[pos].deleted  = false;
+                size++;
+                if ((double)size / capacity > 0.75)
+                    rehash();
+                return;
+            }
+
+            if (table[pos].key == key) {
+                table[pos].value = value;
+                return;
+            }
+        }
+    }
+```
+
+- Проверяваме load factor след всяко вмъкване
+- При надхвърляне на прага → автоматично rehashing
+
+---
+
 ## `std::unordered_map` - стандартната имплементация
 
 - C++ предоставя `std::unordered_map` - HashMap с chaining
@@ -520,8 +554,7 @@ if (it != ages.end()) {
 
 - Разширете примерната `HashMap` имплементация с:
     1. Метод `contains(key)` - проверка за съществуване
-    2. Автоматичен rehashing при load factor > 0.75
-    3. Метод `keys()` - връща вектор с всички ключове
+    2. Метод `keys()` - връща вектор с всички ключове
 - **Бонус:** Имплементирайте HashMap с chaining (свързани списъци)
 
 ---
