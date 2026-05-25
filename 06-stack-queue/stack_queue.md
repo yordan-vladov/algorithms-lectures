@@ -155,23 +155,28 @@ s.size() → 2
 
 ```cpp
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Queue {
 private:
-    int* data;
-    int  head;    // индекс на предния елемент
-    int  tail;    // индекс след последния елемент
-    int  capacity;
-    int  count;
+    vector<int> data;
+    int head;   // индекс на предния елемент
+    int tail;   // индекс след последния елемент
+    int count;
+
+    void resize() {
+        vector<int> newData(data.size() * 2);
+        for (int i = 0; i < count; i++)
+            newData[i] = data[(head + i) % data.size()];
+        data = move(newData);
+        head = 0;
+        tail = count;
+    }
 
 public:
     Queue(int cap = 16)
-        : capacity(cap), head(0), tail(0), count(0) {
-        data = new int[capacity];
-    }
-
-    ~Queue() { delete[] data; }
+        : data(cap), head(0), tail(0), count(0) {}
 ```
 
 ---
@@ -180,14 +185,15 @@ public:
 
 ```cpp
     void enqueue(int x) {
+        if (count == (int)data.size()) resize();
         data[tail] = x;
-        tail = (tail + 1) % capacity;  // кръгово
+        tail = (tail + 1) % data.size();  // кръгово
         count++;
     }
 
     int dequeue() {
         int val = data[head];
-        head = (head + 1) % capacity;  // кръгово
+        head = (head + 1) % data.size();  // кръгово
         count--;
         return val;
     }
@@ -199,6 +205,7 @@ public:
 ```
 
 - **Кръгов буфер** - избягваме местенето на елементи, O(1) за enqueue/dequeue
+- Използваме `vector` за storage - няма нужда от ръчно `new`/`delete`
 
 ---
 
@@ -214,6 +221,27 @@ dequeue():  [ _ , B , C , _ , _ ]   head=1, tail=3  → A
 enqueue(D): [ _ , B , C , D , _ ]   head=1, tail=4
 enqueue(E): [ _ , B , C , D , E ]   head=1, tail=0  (кръгово!)
 ```
+
+---
+
+## Разширяване на буфера при пълен капацитет
+
+```
+capacity = 4,  head=2, tail=2  (пълен: B, C, D, E)
+
+[ D , E , B , C ]
+        ↑ head=2
+
+resize() → разгъва в нов масив с capacity=8:
+
+[ B , C , D , E , _ , _ , _ , _ ]
+  ↑ head=0              ↑ tail=4
+```
+
+- При `enqueue` когато `count == capacity`: удвояваме размера
+- Елементите се **разгъват** в ред от `head` — кръговото наместване изчезва
+- `head = 0`, `tail = count` след resize
+- Сложност: O(1) амортизирано (като `vector::push_back`)
 
 ---
 
@@ -263,8 +291,8 @@ int main() {
 
 | Операция         | Стек  | Опашка | Бележка                          |
 | ---------------- | ----- | ------ | -------------------------------- |
-| push / enqueue   | O(1)* | O(1)   | *амортизирано при vector         |
-| pop / dequeue    | O(1)  | O(1)   | кръгов буфер при опашката        |
+| push / enqueue   | O(1)* | O(1)*  | *амортизирано - удвояване при пълен буфер |
+| pop / dequeue    | O(1)  | O(1)   | кръгов буфер при опашката                |
 | top / front      | O(1)  | O(1)   | само четене                      |
 | Памет            | O(n)  | O(n)   |                                  |
 
