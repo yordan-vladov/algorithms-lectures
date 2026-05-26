@@ -216,7 +216,7 @@ capacity = 5
 
 enqueue(A): [ A , _ , _ , _ , _ ]   head=0, tail=1
 enqueue(B): [ A , B , _ , _ , _ ]   head=0, tail=2
-enqueue(C): [ A , B , C , _ , _ ]   head=0, tail=2
+enqueue(C): [ A , B , C , _ , _ ]   head=0, tail=3
 dequeue():  [ _ , B , C , _ , _ ]   head=1, tail=3  → A
 enqueue(D): [ _ , B , C , D , _ ]   head=1, tail=4
 enqueue(E): [ _ , B , C , D , E ]   head=1, tail=0  (кръгово!)
