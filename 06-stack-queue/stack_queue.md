@@ -235,7 +235,7 @@ capacity = 4,  head=2, tail=2  (пълен: B, C, D, E)
 resize() → разгъва в нов масив с capacity=8:
 
 [ B , C , D , E , _ , _ , _ , _ ]
-  ↑ head=0              ↑ tail=4
+  ↑ head=0        ↑ tail=4
 ```
 
 - При `enqueue` когато `count == capacity`: удвояваме размера
