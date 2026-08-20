@@ -168,7 +168,7 @@ int maxSubArraySum(vector<int>& arr, int low, int high) {
 ```
 
 - Сложност: `T(n) = 2T(n/2) + O(n)` → **O(n log n)**
-- По-добро от наивното `O(n²)`, но не е оптималното - Kadane's algorithm (жаден подход) го решава за `O(n)`, виж `15-greedy-algorithms`
+- По-добро от наивното `O(n²)`, но не е оптималното - Kadane's algorithm (жаден подход) го решава за `O(n)`, виж `16-greedy-algorithms`
 
 ---
 
