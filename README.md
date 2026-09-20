@@ -52,6 +52,9 @@
 31. [Евристични алгоритми (Heuristic Algorithms)](31-heuristic-algorithms/heuristic_algorithms.md)
 32. [NP-пълнота (NP-Completeness)](32-np-completeness/np_completeness.md)
 
+### Бонус
+- [Увод в C++ за Python програмисти](bonus-cpp-intro/cpp_intro.md) - извън основния конспект; препоръчва се преди урок 4
+
 ## Структура на репозиторито
 
 - Всяка тема е в собствена папка, номерирана по реда на изучаване (`NN-tema`).
