@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-pseudocode-flowcharts/pseudocode_flowcharts.md",
+                "file": "03-algorithm-analysis/algorithm_analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pseudocode_flowcharts"
+              "title": "algorithm_analysis"
             }
           }
         ]
@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "8d8a75cd66a6fdf8",
@@ -191,8 +190,10 @@
   },
   "active": "1a59da764639666b",
   "lastOpenFiles": [
-    "01-what-is-an-algorithm/what_is_an_algorithm.md",
+    "attachments/big-o-complexity-chart.webp",
+    "attachments",
     "02-pseudocode-flowcharts/pseudocode_flowcharts.md",
+    "01-what-is-an-algorithm/what_is_an_algorithm.md",
     "README.md"
   ]
 }
