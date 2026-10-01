@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "d818a481f1ba5cfa",
+        "id": "b3b6c3a195bf24e2",
         "type": "tabs",
         "children": [
           {
-            "id": "1a59da764639666b",
+            "id": "06982d970767504f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-algorithm-analysis/algorithm_analysis.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "algorithm_analysis"
+              "title": "New tab"
             }
           }
         ]
@@ -188,15 +184,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a59da764639666b",
+  "active": "06982d970767504f",
   "lastOpenFiles": [
+    "02-pseudocode-flowcharts/pseudocode_flowcharts.md",
+    "01-what-is-an-algorithm/what_is_an_algorithm.md",
+    "README.md",
+    "06-selection-sort/selection_sort.md",
+    "03-algorithm-analysis/algorithm_analysis.md",
     "bonus-cpp-intro/cpp_intro.md",
     "bonus-cpp-intro/cpp_intro.cpp",
     "bonus-cpp-intro",
     "attachments/big-o-complexity-chart.webp",
-    "attachments",
-    "02-pseudocode-flowcharts/pseudocode_flowcharts.md",
-    "01-what-is-an-algorithm/what_is_an_algorithm.md",
-    "README.md"
+    "attachments"
   ]
 }
