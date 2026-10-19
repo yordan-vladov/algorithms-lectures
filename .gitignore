@@ -1,2 +1,2 @@
-test_data_structures/test_v*.md
+tests/*/test_v*.md
 .obsidian/
