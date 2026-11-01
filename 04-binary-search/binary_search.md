@@ -63,19 +63,26 @@ low = 4, high = 6, mid = 5 → arr[5] = 11   11 == 11 → намерен на и
 ```
 low = 0, high = n - 1
 
-докато low <= high:
+while low <= high:
     mid = low + (high - low) / 2
-    ако arr[mid] == target:
-        връщаме mid
-    иначе ако arr[mid] < target:
+    if arr[mid] == target:
+        return mid
+    elif ако arr[mid] < target:
         low = mid + 1
-    иначе:
+    else:
         high = mid - 1
 
-връщаме -1   // не е намерен
+return -1   // не е намерен
 ```
 
 - `mid = low + (high - low) / 2` вместо `(low + high) / 2` - избягва препълване (overflow)
+
+---
+
+## Визуализация
+
+[Как работи алгоритъма върху примерен масив](https://www.geeksforgeeks.org/dsa/binary-search/#:~:text=space%20is%20exhausted.-,Working,-To%20understand%20the)
+![[Binary_Search_Visualisation.png]]
 
 ---
 
